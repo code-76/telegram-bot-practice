@@ -7,6 +7,8 @@ from telegram.inline.inlinequeryresultarticle import InlineQueryResultArticle
 from telegram.inline.inputcontactmessagecontent import InputContactMessageContent
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 bot = Bot(token='5053367584:AAGDKRtPHNnc-Z-Ljy_kBmaxtI_8mnmIcF8')
 updater = Updater(bot=bot, use_context=True)
 dispatcher = updater.dispatcher
@@ -44,7 +46,7 @@ dispatcher.add_handler(hello_handler)
 echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
 dispatcher.add_handler(echo_handler)
 
-# caps_handler = CommandHandler("caps", caps)
+caps_handler = CommandHandler("caps", caps)
 dispatcher.add_handler(caps_handler)
 
 inline_caps_handler = InlineQueryHandler(inline_caps)
